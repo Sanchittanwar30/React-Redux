@@ -10,6 +10,12 @@ const counterreducer = (store = INI_VALUE, action) => {
   } else if (action.type === "DECREMENT") {
     return { counter: store.counter - 1 };
   }
+  else if (action.type === "ADD") {
+    return { counter: store.counter + Number(action.payload.num) };
+  }
+  else if (action.type === "SUBSTRACT") {
+    return { counter: store.counter - Number(action.payload.num) };
+  }
   return store;
 };
 const counterStore = createStore(counterreducer);
